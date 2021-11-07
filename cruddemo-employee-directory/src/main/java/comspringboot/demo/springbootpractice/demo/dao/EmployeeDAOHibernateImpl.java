@@ -26,12 +26,11 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
         Session currentSession = entityManager.unwrap(Session.class);
 
         //create query
-        Query<Employee> theQuery =
-                currentSession.createQuery("select employeeId, firstName, lastName, email from Employee",
-                        Employee.class);
-
+        String query = "select m from Employee m";
         //execute query
+        List<Employee> employees = currentSession.createQuery(query,
+                Employee.class).getResultList();
 
-        return theQuery.getResultList();
+        return employees;
     }
 }
