@@ -1,12 +1,8 @@
 package comspringboot.demo.springbootpractice.demo.restcontroller;
 
-import comspringboot.demo.springbootpractice.demo.dao.EmployeeDAO;
 import comspringboot.demo.springbootpractice.demo.models.Employee;
 import comspringboot.demo.springbootpractice.demo.service.EmployeeService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,8 +23,21 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees")
-    public void save() {
-        Employee employee = new Employee();
+    public Employee addEmployee(@RequestBody Employee employee) {
+        //force set id to 0 if an id is passed in, just so it does not update but creates a new employee
+        employee.setEmployeeId(0);
         employeeService.save(employee);
+        return employee;
+    }
+
+    @GetMapping("/employees/{id}")
+    public Employee getEmployee(@PathVariable int id) {
+        Employee employee = employeeService.findById(id);
+
+        if(employee == null) {
+            throw new RuntimeException("Employee id not found - " + id);
+        }
+
+        return employee;
     }
 }
