@@ -5,5 +5,8 @@ import comspringboot.demo.springbootpractice.demo.models.Employee;
 import java.util.List;
 
 public interface EmployeeDAO {
-    public List<Employee> findAll();
+    List<Employee> findAll();
+    void deleteEmployee(int id);
+    void save(Employee employee);
+    Employee findById(int id);
 }
