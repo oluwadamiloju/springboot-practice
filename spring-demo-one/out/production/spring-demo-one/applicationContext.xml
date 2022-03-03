@@ -18,6 +18,9 @@
 	<bean id="fortuneService" class="com.springdemo.FortuneServiceImpl">
 	</bean>
 
+	<bean id="randomFortune" class="com.springdemo.RandomFortuneImpl">
+	</bean>
+
 <!--	<bean id="myCoach" class="com.springdemo.SkateboardCoach">-->
 <!--		&lt;!&ndash;set up constructor injection &ndash;&gt;-->
 <!--		<constructor-arg ref="fortuneService"/>-->
@@ -38,5 +41,10 @@
 		<!--injecting properties -->
 		<property name="firstName" value="${name}"/>
 		<property name="email" value="${email}"/>
+	</bean>
+
+	<!-- solution to classwork -->
+	<bean id="footballCoach" class="com.springdemo.FootballCoach">
+		<property name="randomFortune" ref="randomFortune"/>
 	</bean>
 </beans>
