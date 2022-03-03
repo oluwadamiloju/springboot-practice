@@ -15,7 +15,8 @@
 
 	<bean id="trackCoach"
 		  class="com.springdemo.TrackCoach"
-		  scope="prototype"
+		  init-method="startup"
+		  destroy-method="cleanup"
 	>
 		<!--set up constructor injection -->
 		<constructor-arg ref="fortuneService"/>
