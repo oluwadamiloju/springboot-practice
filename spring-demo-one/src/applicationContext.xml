@@ -7,8 +7,10 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	
-    <!-- Define your beans here -->
+	<!-- load the properties file -->
+	<context:property-placeholder location="classpath:sport.properties"/>
+
+	<!-- Define your beans here -->
 <!--	<bean id="myCoach" class="com.springdemo.BaseballCoach">-->
 <!--	</bean>-->
 
@@ -30,7 +32,11 @@
 		<!--set up setter injection -->
 		<property name="fortuneService" ref="fortuneService"/>
 		<!--inject literal values -->
-		<property name="email" value="akinkunmioluwadamiloju@gmail.com" />
-		<property name="firstName" value="Sarah" />
+<!--		<property name="email" value="akinkunmioluwadamiloju@gmail.com" />-->
+<!--		<property name="firstName" value="Sarah" />-->
+
+		<!--injecting properties -->
+		<property name="firstName" value="${name}"/>
+		<property name="email" value="${email}"/>
 	</bean>
 </beans>
