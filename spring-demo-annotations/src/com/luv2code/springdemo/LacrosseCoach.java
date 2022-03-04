@@ -8,4 +8,9 @@ public class LacrosseCoach implements Coach{
     public String getDailyWorkout() {
         return "Do 100 reps of squats and lunges";
     }
+
+    @Override
+    public String getDailyFortune() {
+        return null;
+    }
 }
