@@ -17,9 +17,9 @@ public class BeanScopeDemoApp {
         boolean result = trackCoach == subCoach;
         System.out.println("Pointing to the same object is " + result);
         System.out.println();
-        System.out.println("Memory loaction for trackCoach: " + trackCoach);
+        System.out.println("Memory location for trackCoach: " + trackCoach);
         System.out.println();
-        System.out.println("Memory loaction for subCoach: " + subCoach);
+        System.out.println("Memory location for subCoach: " + subCoach);
 
         //close context
         context.close();
