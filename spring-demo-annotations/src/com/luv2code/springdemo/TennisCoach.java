@@ -11,8 +11,7 @@ import javax.annotation.PreDestroy;
 @Component
 public class TennisCoach implements Coach {
 	@Autowired
-	@Qualifier("randomFileFortuneService")
-	private FortuneService fortuneService;
+	private FortuneServiceImpl fortuneService;
 
 /*	@Autowired
 	public TennisCoach(FortuneServiceImpl fortuneService) {
