@@ -2,6 +2,7 @@ package com.luv2code.springdemo;
 
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,7 +15,7 @@ public class RandomFileFortuneService implements FortuneService{
     private static int lines = 0;
     private static List<String> fortuneList = new ArrayList<>();
 
-
+    @PostConstruct
     public static void openFortuneFile() {
         Path path = Paths.get("fortunes.txt");
 
@@ -24,6 +25,7 @@ public class RandomFileFortuneService implements FortuneService{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Initialization successful!");
     }
 
     public static void readFortunesIntoList() {
